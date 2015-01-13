@@ -3222,7 +3222,8 @@ bool ACodec::describeDefaultColorFormat(DescribeColorFormatParams &params) {
     if (fmt != OMX_COLOR_FormatYUV420Planar &&
         fmt != OMX_COLOR_FormatYUV420PackedPlanar &&
         fmt != OMX_COLOR_FormatYUV420SemiPlanar &&
-        fmt != OMX_COLOR_FormatYUV420PackedSemiPlanar) {
+        fmt != OMX_COLOR_FormatYUV420PackedSemiPlanar &&
+	fmt != OMX_TI_COLOR_FormatYUV420PackedSemiPlanar) {
         ALOGW("do not know color format 0x%x = %d", fmt, fmt);
         return false;
     }
@@ -3270,7 +3271,8 @@ bool ACodec::describeDefaultColorFormat(DescribeColorFormatParams &params) {
 
         case OMX_COLOR_FormatYUV420SemiPlanar:
             // FIXME: NV21 for sw-encoder, NV12 for decoder and hw-encoder
-        case OMX_COLOR_FormatYUV420PackedSemiPlanar:
+        case OMX_TI_COLOR_FormatYUV420PackedSemiPlanar:
+	case OMX_COLOR_FormatYUV420PackedSemiPlanar:
             // NV12
             image.mPlane[image.U].mOffset = params.nStride * params.nSliceHeight;
             image.mPlane[image.U].mColInc = 2;
