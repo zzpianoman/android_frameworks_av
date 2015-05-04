@@ -133,6 +133,10 @@ endif
 LOCAL_CLANG := true
 LOCAL_SANITIZE := unsigned-integer-overflow signed-integer-overflow
 
+ifeq ($(OMAP_TUNA),true)
+LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE:= libstagefright
 
 LOCAL_MODULE_TAGS := optional
