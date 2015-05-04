@@ -140,6 +140,10 @@ endif
 
 LOCAL_CLANG := true
 
+ifeq ($(OMAP_TUNA),true)
+LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE:= libstagefright
 
 LOCAL_MODULE_TAGS := optional
