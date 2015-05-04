@@ -140,6 +140,10 @@ ifeq ($(TARGET_BOARD_PLATFORM),omap4)
 LOCAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
 endif
 
+ifeq ($(OMAP_TUNA),true)
+LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE:= libstagefright
 
 LOCAL_MODULE_TAGS := optional
