@@ -2757,6 +2757,15 @@ status_t ACodec::setupVideoEncoder(const char *mime, const sp<AMessage> &msg) {
         stride = width;
     }
 
+/**Force stride to 4096 for Tuna to fix green band on recorded video
+   TODO: find out why the stride value is being incorrectly set from
+   the camera, and fix it from the source.
+**/
+
+#ifdef OMAP_TUNA
+    stride = 4096;
+#endif
+
     video_def->nStride = stride;
 
     int32_t sliceHeight;

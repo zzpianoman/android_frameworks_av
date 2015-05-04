@@ -260,6 +260,10 @@ ifeq ($(BOARD_USE_SEIREN_AUDIO), true)
 LOCAL_CFLAGS += -DUSE_SEIREN_AUDIO
 endif
 
+ifeq ($(OMAP_TUNA),true)
+LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE:= libstagefright
 
 LOCAL_MODULE_TAGS := optional
