@@ -128,6 +128,10 @@ ifeq ($(BOARD_USES_LEGACY_ACQUIRE_WVM),true)
 LOCAL_CFLAGS += -DUSES_LEGACY_ACQUIRE_WVM
 endif
 
+ifeq ($(OMAP_TUNA),true)
+LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE:= libstagefright
 
 LOCAL_MODULE_TAGS := optional
