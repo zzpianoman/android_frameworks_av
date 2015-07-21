@@ -36,11 +36,14 @@
 
 namespace android {
 
+class MediaRecorder;
 /*
  * Common delegate to the classes in libstagefright
  */
 struct AVMediaUtils {
 
+
+    virtual sp<MediaRecorder> createMediaRecorder(const String16& opPackageName);
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVMediaUtils);
 };

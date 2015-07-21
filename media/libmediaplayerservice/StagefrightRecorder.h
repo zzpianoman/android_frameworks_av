@@ -140,7 +140,7 @@ protected:
     status_t setupRawAudioRecording();
     status_t setupRTPRecording();
     status_t setupMPEG2TSRecording();
-    sp<MediaSource> createAudioSource();
+    virtual sp<MediaSource> createAudioSource();
     status_t checkVideoEncoderCapabilities();
     status_t checkAudioEncoderCapabilities();
     // Generic MediaSource set-up. Returns the appropriate
@@ -149,12 +149,12 @@ protected:
     status_t setupMediaSource(sp<MediaSource> *mediaSource);
     status_t setupCameraSource(sp<CameraSource> *cameraSource);
     status_t setupAudioEncoder(const sp<MediaWriter>& writer);
-    status_t setupVideoEncoder(sp<MediaSource> cameraSource, sp<MediaSource> *source);
+    virtual status_t setupVideoEncoder(sp<MediaSource> cameraSource, sp<MediaSource> *source);
     virtual void setupCustomVideoEncoderParams(sp<MediaSource> /*cameraSource*/,
             sp<AMessage> &/*format*/) {}
 
     // Encoding parameter handling utilities
-    status_t setParameter(const String8 &key, const String8 &value);
+    virtual status_t setParameter(const String8 &key, const String8 &value);
     status_t setParamAudioEncodingBitRate(int32_t bitRate);
     status_t setParamAudioNumberOfChannels(int32_t channles);
     status_t setParamAudioSamplingRate(int32_t sampleRate);

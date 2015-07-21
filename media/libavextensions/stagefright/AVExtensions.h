@@ -41,11 +41,19 @@ struct ACodec;
 class MediaExtractor;
 struct MediaCodec;
 class AudioParameter;
+struct MediaSource;
 struct NuCachedSource2;
 struct MediaHTTP;
 struct IMediaHTTPConnection;
 class CameraParameters;
 class MediaBuffer;
+struct AudioSource;
+class CameraSource;
+class ICamera;
+class ICameraRecordingProxy;
+class String16;
+class IGraphicBufferProducer;
+struct Size;
 
 /*
  * Factory to create objects of base-classes in libstagefright
@@ -65,6 +73,23 @@ struct AVFactory {
     virtual MediaHTTP* createMediaHTTP(
             const sp<IMediaHTTPConnection> &conn);
 
+    virtual AudioSource* createAudioSource(
+            audio_source_t inputSource,
+            const String16 &opPackageName,
+            uint32_t sampleRate,
+            uint32_t channels,
+            uint32_t outSampleRate = 0);
+
+    virtual CameraSource *CreateFromCamera(
+            const sp<ICamera> &camera,
+            const sp<ICameraRecordingProxy> &proxy,
+            int32_t cameraId,
+            const String16& clientName,
+            uid_t clientUid,
+            Size videoSize,
+            int32_t frameRate,
+            const sp<IGraphicBufferProducer>& surface,
+            bool storeMetaDataInVideoBuffers = true);
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVFactory);
 };
