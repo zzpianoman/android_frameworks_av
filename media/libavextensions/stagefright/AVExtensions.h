@@ -32,6 +32,8 @@
 #include <media/stagefright/DataSource.h>
 #include <common/AVExtensionsCommon.h>
 #include <system/audio.h>
+#include <camera/ICamera.h>
+#include <media/mediarecorder.h>
 
 namespace android {
 
@@ -86,6 +88,10 @@ struct AVUtils {
     virtual void printFileName(int /*fd*/) {}
     virtual void addDecodingTimesFromBatch(MediaBuffer * /*buf*/,
             List<int64_t> &/*decodeTimeQueue*/) {}
+
+    virtual bool isAudioMuxFormatSupported(const char *mime);
+    virtual void cacheCaptureBuffers(sp<ICamera> camera, video_encoder encoder);
+    virtual const char *getCustomCodecsLocation();
 
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVUtils);

@@ -74,6 +74,18 @@ sp<MediaCodec> AVUtils::createCustomComponentByName(
     return NULL;
 }
 
+bool AVUtils::isAudioMuxFormatSupported(const char *) {
+    return true;
+}
+
+void AVUtils::cacheCaptureBuffers(sp<ICamera>, video_encoder) {
+    return;
+}
+
+const char *AVUtils::getCustomCodecsLocation() {
+    return "/etc/media_codecs.xml";
+}
+
 // ----- NO TRESSPASSING BEYOND THIS LINE ------
 AVUtils::AVUtils() {}
 

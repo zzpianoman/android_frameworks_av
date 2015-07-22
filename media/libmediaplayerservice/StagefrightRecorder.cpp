@@ -55,6 +55,7 @@
 #include <system/audio.h>
 
 #include "ARTPWriter.h"
+#include <stagefright/AVExtensions.h>
 
 namespace android {
 
@@ -1456,6 +1457,7 @@ status_t StagefrightRecorder::setupCameraSource(
                 videoSize, mFrameRate,
                 mPreviewSurface);
     }
+    AVUtils::get()->cacheCaptureBuffers(mCamera, mVideoEncoder);
     mCamera.clear();
     mCameraProxy.clear();
     if (*cameraSource == NULL) {
