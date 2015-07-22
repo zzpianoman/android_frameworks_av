@@ -75,11 +75,9 @@ sp<MediaCodec> AVUtils::createCustomComponentByName(
 }
 
 // ----- NO TRESSPASSING BEYOND THIS LINE ------
-AVUtils::AVUtils() {
-}
+AVUtils::AVUtils() {}
 
-AVUtils::~AVUtils() {
-}
+AVUtils::~AVUtils() {}
 
 //static
 AVUtils *AVUtils::sInst =

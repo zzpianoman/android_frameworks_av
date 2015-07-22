@@ -55,6 +55,9 @@ struct AVNuFactory {
  */
 struct AVNuUtils {
 
+
+    virtual void printFileName(int fd);
+
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVNuUtils);
 };

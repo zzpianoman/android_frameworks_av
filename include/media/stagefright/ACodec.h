@@ -304,7 +304,7 @@ protected:
             ssize_t *index = NULL);
 
     virtual status_t setComponentRole(bool isEncoder, const char *mime);
-    status_t configureCodec(const char *mime, const sp<AMessage> &msg);
+    virtual status_t configureCodec(const char *mime, const sp<AMessage> &msg);
 
     status_t configureTunneledVideoPlayback(int32_t audioHwSync,
             const sp<ANativeWindow> &nativeWindow);
@@ -320,7 +320,7 @@ protected:
     virtual status_t setupVideoDecoder(
             const char *mime, const sp<AMessage> &msg, bool usingNativeBuffers);
 
-    status_t setupVideoEncoder(
+    virtual status_t setupVideoEncoder(
             const char *mime, const sp<AMessage> &msg);
 
     status_t setVideoFormatOnPort(
@@ -423,10 +423,18 @@ protected:
         DescribeColorFormatParams &describeParams);
 
     status_t requestIDRFrame();
-    status_t setParameters(const sp<AMessage> &params);
+    virtual status_t setParameters(const sp<AMessage> &params);
 
     // Send EOS on input stream.
     void onSignalEndOfInputStream();
+
+    virtual void setBFrames(OMX_VIDEO_PARAM_MPEG4TYPE *mpeg4type) {}
+    virtual void setBFrames(OMX_VIDEO_PARAM_AVCTYPE *h264type,
+        const int32_t iFramesInterval, const int32_t frameRate) {}
+
+    virtual status_t getVQZIPInfo(const sp<AMessage> &msg) {
+        return OK;
+    }
 
     DISALLOW_EVIL_CONSTRUCTORS(ACodec);
 };

@@ -42,6 +42,8 @@ class AudioParameter;
 struct NuCachedSource2;
 struct MediaHTTP;
 struct IMediaHTTPConnection;
+class CameraParameters;
+class MediaBuffer;
 
 /*
  * Factory to create objects of base-classes in libstagefright
@@ -78,6 +80,13 @@ struct AVUtils {
 
     virtual sp<MediaCodec> createCustomComponentByName(const sp<ALooper> &looper,
                 const char* mime, bool encoder, const sp<AMessage> &format);
+
+    virtual void extractCustomCameraKeys(
+            const CameraParameters& /*params*/, sp<MetaData> &/*meta*/) {}
+    virtual void printFileName(int /*fd*/) {}
+    virtual void addDecodingTimesFromBatch(MediaBuffer * /*buf*/,
+            List<int64_t> &/*decodeTimeQueue*/) {}
+
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVUtils);
 };

@@ -44,12 +44,12 @@
 
 namespace android {
 
-// ----- NO TRESSPASSING BEYOND THIS LINE ------
-AVNuUtils::AVNuUtils() {
-}
+void AVNuUtils::printFileName(int) {}
 
-AVNuUtils::~AVNuUtils() {
-}
+// ----- NO TRESSPASSING BEYOND THIS LINE ------
+AVNuUtils::AVNuUtils() {}
+
+AVNuUtils::~AVNuUtils() {}
 
 //static
 AVNuUtils *AVNuUtils::sInst =
