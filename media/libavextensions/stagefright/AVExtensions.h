@@ -73,7 +73,7 @@ struct AVUtils {
     virtual status_t sendMetaDataToHal(const sp<MetaData>& meta, AudioParameter *param);
 
     virtual sp<MediaCodec> createCustomComponentByName(const sp<ALooper> &looper,
-                const char* mime, bool encoder);
+                const char* mime, bool encoder, const sp<AMessage> &format);
     // ----- NO TRESSPASSING BEYOND THIS LINE ------
     DECLARE_LOADABLE_SINGLETON(AVUtils);
 };
