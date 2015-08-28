@@ -46,6 +46,10 @@ namespace android {
 
 void AVNuUtils::printFileName(int) {}
 
+void AVNuUtils::checkFormatChange(bool * /*formatChange*/,
+        const sp<ABuffer> & /*accessUnit*/) {
+}
+
 // ----- NO TRESSPASSING BEYOND THIS LINE ------
 AVNuUtils::AVNuUtils() {}
 
