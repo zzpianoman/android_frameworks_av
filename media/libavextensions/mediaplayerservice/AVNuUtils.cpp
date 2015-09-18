@@ -52,6 +52,10 @@ void AVNuUtils::checkFormatChange(bool * /*formatChange*/,
 
 bool AVNuUtils::dropCorruptFrame() { return false; }
 
+void AVNuUtils::addFlagsInMeta(const sp<ABuffer> & /*buffer*/,
+        int32_t /*flags*/, bool /*isAudio*/) {
+}
+
 // ----- NO TRESSPASSING BEYOND THIS LINE ------
 AVNuUtils::AVNuUtils() {}
 
