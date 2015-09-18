@@ -128,6 +128,8 @@ struct AVUtils {
     virtual void addDecodingTimesFromBatch(MediaBuffer * /*buf*/,
             List<int64_t> &/*decodeTimeQueue*/) {}
 
+    virtual bool canDeferRelease(const sp<MetaData> &/*meta*/) { return false; }
+    virtual void setDeferRelease(sp<MetaData> &/*meta*/) {}
     virtual bool isAudioMuxFormatSupported(const char *mime);
     virtual void cacheCaptureBuffers(sp<ICamera> camera, video_encoder encoder);
     virtual const char *getCustomCodecsLocation();
