@@ -42,7 +42,6 @@ struct ACodec;
 class MediaExtractor;
 struct MediaCodec;
 class AudioParameter;
-struct MediaSource;
 struct NuCachedSource2;
 struct MediaHTTP;
 struct IMediaHTTPConnection;
