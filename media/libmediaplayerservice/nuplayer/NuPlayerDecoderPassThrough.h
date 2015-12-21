@@ -52,9 +52,7 @@ private:
     sp<Source> mSource;
     sp<Renderer> mRenderer;
     int64_t mSkipRenderingUntilMediaTimeUs;
-    bool mPaused;
-
-    bool    mReachedEOS;
+    bool mReachedEOS;
 
     // Used by feedDecoderInputData to aggregate small buffers into
     // one large buffer.
