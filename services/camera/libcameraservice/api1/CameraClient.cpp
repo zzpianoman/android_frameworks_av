@@ -676,20 +676,6 @@ status_t CameraClient::sendCommand(int32_t cmd, int32_t arg1, int32_t arg2) {
     } else if (cmd == CAMERA_CMD_PING) {
         // If mHardware is 0, checkPidAndHardware will return error.
         return OK;
-    } else if (cmd == CAMERA_CMD_HISTOGRAM_ON) {
-        enableMsgType(CAMERA_MSG_STATS_DATA);
-    } else if (cmd == CAMERA_CMD_HISTOGRAM_OFF) {
-        disableMsgType(CAMERA_MSG_STATS_DATA);
-    } else if (cmd == CAMERA_CMD_METADATA_ON) {
-        enableMsgType(CAMERA_MSG_META_DATA);
-    } else if (cmd == CAMERA_CMD_METADATA_OFF) {
-        disableMsgType(CAMERA_MSG_META_DATA);
-    } else if ( cmd == CAMERA_CMD_LONGSHOT_ON ) {
-        mLongshotEnabled = true;
-    } else if ( cmd == CAMERA_CMD_LONGSHOT_OFF ) {
-        mLongshotEnabled = false;
-        disableMsgType(CAMERA_MSG_SHUTTER);
-        disableMsgType(CAMERA_MSG_COMPRESSED_IMAGE);
     }
 
     return mHardware->sendCommand(cmd, arg1, arg2);
