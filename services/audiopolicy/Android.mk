@@ -150,6 +150,10 @@ endif
 
 LOCAL_CFLAGS += $(common_cflags)
 
+ifeq ($(OMAP_TUNA),true)
+   LOCAL_CFLAGS += -DOMAP_TUNA
+endif
+
 LOCAL_MODULE := libaudiopolicymanagerdefault
 
 include $(BUILD_SHARED_LIBRARY)
