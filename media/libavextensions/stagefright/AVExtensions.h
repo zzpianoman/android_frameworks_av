@@ -39,6 +39,7 @@
 namespace android {
 
 struct ACodec;
+struct ALooper;
 class MediaExtractor;
 struct MediaCodec;
 class AudioParameter;
